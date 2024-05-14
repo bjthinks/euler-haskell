@@ -135,12 +135,12 @@ divisible = flip divides
 
 {-# SPECIALIZE isEven :: Integer -> Bool #-}
 {-# SPECIALIZE isEven :: Int -> Bool #-}
-isEven :: (Bits a) => a -> Bool
+isEven :: (Bits a, Num a) => a -> Bool
 isEven = (==0) . (.&.1)
 
 {-# SPECIALIZE isOdd :: Integer -> Bool #-}
 {-# SPECIALIZE isOdd :: Int -> Bool #-}
-isOdd :: (Bits a) => a -> Bool
+isOdd :: (Bits a, Num a) => a -> Bool
 isOdd = (/=0) . (.&.1)
 
 -- 1000 or more gives substantial speedup to P27, but 1000000 slows it down
