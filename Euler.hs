@@ -472,7 +472,7 @@ egcd a b = egcd' a b 1 0 0 1
       | otherwise = egcd' (b `mod` a) a
                     (e - c * (b `div` a)) (f - d * (b `div` a)) c d
 
-modularInverse :: Integral a => a -> a -> a
+modularInverse :: (Integral a, Show a) => a -> a -> a
 modularInverse p a = y'
   where
     (g,_,y) = egcd p a
