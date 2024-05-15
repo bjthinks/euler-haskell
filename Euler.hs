@@ -293,7 +293,7 @@ isPalindromeBase :: (Integral a) => a -> a -> Bool
 isPalindromeBase b = equal id reverse . digitsBase b
 
 {-# SPECIALIZE isPalindrome :: Int -> Bool #-}
-isPalindrome :: (Integral a) => a -> Bool
+isPalindrome :: (Integral a, Show a) => a -> Bool
 isPalindrome = equal id reverse . show
 
 digits :: (Integral a) => a -> [Int]
