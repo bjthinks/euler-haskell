@@ -4,7 +4,7 @@ import Data.Ratio
 lagrangeBasisPolynomial :: Fractional a => a -> [a] -> a -> a
 lagrangeBasisPolynomial y zs x = product [(x - z) / (y - z) | z <- zs]
 
-lagrangeInterpolationPolynomial :: Fractional a => [(a,a)] -> a -> a
+lagrangeInterpolationPolynomial :: (Fractional a, Eq a) => [(a,a)] -> a -> a
 lagrangeInterpolationPolynomial points z =
   sum [y * lagrangeBasisPolynomial x (map fst (filter (/=(x,y)) points)) z |
        (x,y) <- points]
