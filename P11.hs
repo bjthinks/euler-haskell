@@ -1,4 +1,4 @@
-import Array
+import Data.Array
 
 numbers :: Array Int (Array Int Int)
 numbers = listArray (0,19) $
