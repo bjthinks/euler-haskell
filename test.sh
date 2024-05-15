@@ -20,7 +20,7 @@ do
     problem=`echo $line | awk '{print $1}'`
     echo "Testing problem $problem..."
     expected_answer=`echo $line | awk '{print $2}'`
-    ghc --make -O3 P$problem
+    ghc --make -O3 -XFlexibleContexts P$problem
     actual_answer=`./P$problem`
     if [ "x$expected_answer" != "x$actual_answer" ]
     then
